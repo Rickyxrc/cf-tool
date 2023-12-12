@@ -3,9 +3,9 @@ package cmd
 import (
 	"github.com/fatih/color"
 	ansi "github.com/k0kubun/go-ansi"
-	"github.com/xalanq/cf-tool/client"
-	"github.com/xalanq/cf-tool/config"
-	"github.com/xalanq/cf-tool/util"
+	"github.com/ssvb/cf-tool/client"
+	"github.com/ssvb/cf-tool/config"
+	"github.com/ssvb/cf-tool/util"
 )
 
 // Config command
