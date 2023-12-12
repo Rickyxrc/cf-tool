@@ -27,7 +27,9 @@ func findSample(body []byte) (input [][]byte, output [][]byte, err error) {
 		return nil, nil, fmt.Errorf("Cannot parse sample with input %v and output %v", len(a), len(b))
 	}
 	newline := regexp.MustCompile(`<[\s/br]+?>`)
+	divclass := regexp.MustCompile(`<div class="test-example-line[\s\S]*?">([\s\S]*?)</div>`)
 	filter := func(src []byte) []byte {
+		src = divclass.ReplaceAll(src, []byte("$1\n"))
 		src = newline.ReplaceAll(src, []byte("\n"))
 		s := html.UnescapeString(string(src))
 		return []byte(strings.TrimSpace(s) + "\n")
